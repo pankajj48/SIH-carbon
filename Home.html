@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <title>NuCarbon Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #69e8f0, #1a77f2);
+            color: #333;
+        }
+
+        .header {
+            background-color: #000;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .logo img {
+            width: 100px;
+            margin-right: 10px;
+        }
+
+        .header .nav {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .header .nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .header .nav a.active::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            height: 3px;
+            width: 100%;
+            background-color: #fff;
+        }
+
+        .header .nav a:hover {
+            text-decoration: underline;
+        }
+
+        .home-icon img {
+            width: 30px;
+            height: auto;
+        }
+
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .content h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .content h2 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #333;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 15px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease;
+        }
+
+        .card img {
+            width: 100%;
+            height: 150px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        .card h3 {
+            font-size: 18px;
+            margin: 20px 0 10px 0;
+        }
+
+        .card p {
+            font-size: 14px;
+            margin: 0 20px 20px 20px;
+            color: #555;
+            flex-grow: 1; /* Pushes the content up */
+        }
+
+        .card button {
+            background-color: #1a77f2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin: 10px 20px 20px 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .card button:hover {
+            background-color: #005ecb;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .dashboard-title {
+            font-size: 36px;
+            color: #333;
+        }
+
+        .nullification-methods {
+            font-size: 24px;
+            color: #4CAF50;
+            margin-bottom: 30px;
+        }
+        .header .home-icon .icon i{
+            width: 30px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="Assesets/NuLogo.png" alt="NuCarbon Logo">
+        </div>
+        <div class="nav">
+            <a href="Home.html" class="active">Home</a>
+            <a href="Mines.html">Mines</a>
+            <a href="caraboncredit.html">Carbon Credit</a>
+            <a href="Internship.html">Internships</a>
+            <a href="Aboutus.html">About Us</a>
+        </div>
+        <div class="home-icon">
+            <a href="Home.html" class="icon"><i class="bx bxs-home"></i></a>
+        </div>
+    </div>
+
+    <div class="content">
+        <h1 class="dashboard-title">Dashboard</h1>
+        <h2 class="nullification-methods">Nullification Methods</h2>
+
+        <div class="card-container">
+            <div class="card">
+                <img src="Assesets/Renewal sorce.png" alt="Renewable Energy">
+                <h3>Adopt Renewable Energy</h3>
+                <p>Leverage renewable sources for energy to reduce carbon emissions.</p>
+                <button>View</button>
+            </div>
+            <div class="card">
+                <img src="Assesets/ccus.png" alt="Carbon Capture">
+                <h3>Implement Carbon Capture Technology</h3>
+                <p>Utilize carbon capture techniques to minimize atmospheric emissions.</p>
+                <button>View</button>
+            </div>
+            <div class="card">
+                <img src="Assesets/electric.png" alt="Switch to Electric">
+                <h3>Switch to Electric Vehicles</h3>
+                <p>Transition to electric vehicles to reduce transportation emissions.</p>
+                <button>View</button>
+            </div>
+            <div class="card">
+                <img src="Assesets/afforestation.png" alt="Afforestation">
+                <h3>Afforestation</h3>
+                <p>Afforestation can play a major role in the nullifying process.</p>
+                <button>View</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Optional JS for interaction effects
+        document.querySelectorAll('.card button').forEach(button => {
+            button.addEventListener('click', () => {
+                alert('Button Clicked!');
+            });
+        });
+    </script>

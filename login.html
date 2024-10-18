@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NuCarbon Login</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #79d3a2, #2674ea);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .login-container {
+            width: 350px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+        .logo-container img {
+            width: 200px;
+            height: auto;
+        }
+        .welcome-text {
+            font-size: 22px;
+            color: #2681e0;
+            margin: 10px 0 30px;
+        }
+        .login-container h2 {
+            font-size: 22px;
+            color: #2681e0;
+            margin-bottom: 20px;
+        }
+        .login-container input[type="text"], .login-container input[type="password"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-container input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .login-container .login-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #2681e0;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            text-decoration: none; /* Added to remove underline */
+        }
+        .login-container .login-button:hover {
+            background-color: #1868b7;
+        }
+        .login-container .form-links {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+        .login-container .form-links a {
+            color: #2681e0;
+            text-decoration: none;
+        }
+        .login-container .form-links a:hover {
+            text-decoration: underline;
+        }
+        .tab-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .tab {
+            width: 50%;
+            padding: 10px;
+            cursor: pointer;
+            background-color: #2681e0;
+            color: white;
+            border: none;
+        }
+        .tab.active {
+            background-color: #1868b7;
+        }
+        .form-content {
+            display: none;
+        }
+        .form-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <img src="Assesets/NuLogo.png" alt="NuCarbon Logo">
+    </div>
+    <div class="login-container">
+        <!-- Welcome Text -->
+        <div class="welcome-text">Welcome...!!</div>
+        
+        <!-- Tab Buttons -->
+        <div class="tab-container">
+            <button class="tab active" onclick="showForm('userForm')">User</button>
+            <button class="tab" onclick="showForm('govtUserForm')">Govt. User</button>
+        </div>
+        
+        <!-- Login Title -->
+        <h2>Login</h2>
+        <form action="pythonweb.py" method="post" >
+            <!-- User Login Form -->
+        <div id="userForm" class="form-content active">
+            <input type="text" id="userName" placeholder="User Name" required>
+            <input type="password" id="userPassword" placeholder="Password" required>
+            <div>
+                <input type="checkbox" id="remember-me">
+                <label for="remember-me">Remember me</label>
+            </div>
+            <button type="button" class="login-button" onclick="login('user')">LOGIN</button>
+            <div class="form-links">
+                <a href="#">New User? Signup</a>
+                <a href="#">Forgot your password?</a>
+            </div>
+        </div>
+
+        <!-- Govt. User Login Form -->
+        <div id="govtUserForm" class="form-content">
+            <input type="text" id="govtUserName" placeholder="Govt. User Name" required>
+            <input type="password" id="govtUserPassword" placeholder="Govt. User Password" required>
+            <div>
+                <input type="checkbox" id="remember-me-govt">
+                <label for="remember-me-govt">Remember me</label>
+            </div>
+            <button type="button" class="login-button" onclick="login('govt')">LOGIN</button>
+            <div class="form-links">
+                <a href="#">New Govt. User? Signup</a>
+                <a href="#">Forgot your password?</a>
+            </div>
+        </div>
+        </form>
+        
+    </div>
+
+    <script>
+        function showForm(formId) {
+            // Hide all forms
+            const forms = document.querySelectorAll('.form-content');
+            forms.forEach(form => form.classList.remove('active'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show the selected form
+            document.getElementById(formId).classList.add('active');
+            
+            // Set the active class on the clicked tab
+            if (formId === 'userForm') {
+                tabs[0].classList.add('active');
+            } else {
+                tabs[1].classList.add('active');
+            }
+        }
+
+        function login(userType) {
+            let userName, userPassword;
+            
+            if (userType === 'user') {
+                userName = document.getElementById('userName').value;
+                userPassword = document.getElementById('userPassword').value;
+            } else {
+                userName = document.getElementById('govtUserName').value;
+                userPassword = document.getElementById('govtUserPassword').value;
+            }
+
+            if (userName === '' || userPassword === '') {
+                alert('Please enter both username and password.');
+            } else {
+                window.location.href = 'Home.html';  // Redirect to Home.html if login details are entered
+            }
+        }
+    </script>
+</body>
+</html>
